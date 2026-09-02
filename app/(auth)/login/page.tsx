@@ -38,11 +38,16 @@ export default function LoginPage() {
   }
 
   async function handleGoogleLogin() {
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: { redirectTo: `${window.location.origin}/auth/callback` },
-    });
-  }
+  await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: `${window.location.origin}/auth/callback`,
+      queryParams: {
+        prompt: 'select_account',
+      },
+    },
+  });
+}
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-cream py-16">
