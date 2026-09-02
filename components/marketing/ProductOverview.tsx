@@ -1,6 +1,7 @@
 import { Link2, Store, CreditCard, Users, BarChart3, MessagesSquare } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 
 const pillars = [
   {
@@ -39,7 +40,7 @@ export default function ProductOverview() {
   return (
     <section id="product" className="scroll-mt-24 py-20 sm:py-28">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Platform Mivra</Eyebrow>
           <h2 className="text-balance mt-5 font-display text-3xl font-bold tracking-tight text-ink sm:text-[44px]">
             Satu platform. Semua tools yang bisnismu butuhkan.
@@ -49,9 +50,9 @@ export default function ProductOverview() {
             system" di balik halamanmu — commerce, pembayaran, pelanggan, dan
             dukungan, semua terhubung.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal delay={0.1} className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {pillars.map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
@@ -64,7 +65,7 @@ export default function ProductOverview() {
               <p className="mt-2 text-[14.5px] leading-relaxed text-ink-400">{desc}</p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

@@ -22,3 +22,17 @@ Log task yang sudah selesai, urut dari terbaru. Format: `- [x] YYYY-MM-DD — De
 - [x] 2026-09-01 — Tulis migration SQL awal (`0001_init.sql`): 9 tabel inti + RLS policy di semua tabel + trigger enforcement limit tier (produk, link, gallery) + trigger auto-buat profil saat signup
 - [x] 2026-09-01 — Buat `lib/limits.ts` sebagai satu sumber kebenaran batasan tier Gratis/Premium
 - [x] 2026-09-01 — Buat halaman login & daftar dengan Supabase Auth (email/password + tombol Google OAuth)
+- [x] 2026-09-02 — Deploy pertama sukses ke Vercel: https://mivra-alpha.vercel.app (setelah fix 2 type error TypeScript di lib/supabase/server.ts & middleware.ts — parameter cookiesToSet butuh tipe eksplisit CookieOptions[])
+- [x] 2026-09-02 — Optimasi aset: folder public/mascot & public/images dikompres PNG/JPG besar → WebP, total project 6.9MB → 836KB, semua referensi path di kode diperbarui
+- [x] 2026-09-02 — Favicon diganti dari placeholder ke maskot hamster asli
+- [x] 2026-09-02 — Transisi navbar saat scroll diperhalus (duration-300 → duration-500 ease-out)
+- [x] 2026-09-02 — Tambah animasi scroll-reveal (fade+slide) di 10 section landing page via komponen Reveal reusable (framer-motion whileInView)
+- [x] 2026-09-02 — Fix bug: buat route handler /auth/callback yang belum ada (dirujuk halaman login untuk redirect Google OAuth)
+- [x] 2026-09-02 — Bangun layout dashboard (Sidebar + Topbar) dengan proteksi auth server-side di app/(dashboard)/layout.tsx
+- [x] 2026-09-02 — Bangun halaman Ringkasan (statistik link/produk real dari Supabase)
+- [x] 2026-09-02 — Bangun halaman Halaman Bio fungsional penuh: tambah/hapus/reorder/toggle link via Server Actions, limit tier ditegakkan di server
+- [x] 2026-09-02 — Render halaman publik app/[username]/page.tsx dari data Supabase asli + generateMetadata Open Graph per-user
+- [x] 2026-09-02 — Buat halaman placeholder (Katalog, Gallery, Pesanan, Rekap, Tema, Pengaturan) + halaman Upgrade (perbandingan tier)
+- [x] 2026-09-02 — Migration 0002: storage bucket product-images + RLS (publik bisa lihat, user cuma bisa upload/hapus di folder miliknya sendiri)
+- [x] 2026-09-02 — Katalog Produk fungsional: tambah produk (dengan upload gambar, validasi tipe/ukuran file), hapus, sembunyikan/tampilkan — limit 5/500 tier ditegakkan di server
+- [x] 2026-09-02 — Halaman publik [username] sekarang render grid produk asli dari database

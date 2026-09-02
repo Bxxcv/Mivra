@@ -1,6 +1,7 @@
 import { Sparkles, Clock3, Languages, UserCheck, Send } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 
 const points = [
   {
@@ -29,7 +30,7 @@ export default function AISupport() {
   return (
     <section id="ai-support" className="scroll-mt-24 bg-white py-20 sm:py-28">
       <Container>
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
+        <Reveal className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
           <div>
             <Eyebrow icon={<Sparkles className="h-3.5 w-3.5 text-amber-500" />}>Dukungan bertenaga AI</Eyebrow>
             <h2 className="text-balance mt-5 font-display text-3xl font-bold tracking-tight text-ink sm:text-[40px]">
@@ -108,7 +109,7 @@ export default function AISupport() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

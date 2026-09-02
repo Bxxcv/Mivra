@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 
 const featured = [
   {
@@ -38,7 +39,7 @@ export default function UseCases() {
   return (
     <section id="usecases" className="scroll-mt-24 bg-white py-20 sm:py-28">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow icon={<Mic2 className="h-3.5 w-3.5" />}>Dibuat untuk semua jenis bisnis</Eyebrow>
           <h2 className="text-balance mt-5 font-display text-3xl font-bold tracking-tight text-ink sm:text-[44px]">
             Apa pun yang kamu jual, bagaimanapun cara jualnya.
@@ -47,7 +48,7 @@ export default function UseCases() {
             Dari seller pertama kali sampai bisnis kreator full-time — Mivra
             tumbuh bersamamu.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
           {featured.map((f) => (

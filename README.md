@@ -26,6 +26,8 @@ Project ini di-scaffold di lingkungan sandbox **tanpa akses internet**, jadi:
    npx supabase db push
    ```
    (atau paste isi `supabase/migrations/0001_init.sql` manual ke SQL Editor di dashboard Supabase kalau belum mau install Supabase CLI)
+
+   **Penting**: ada 2 file migration sekarang — jalankan **keduanya secara urut**: `0001_init.sql` dulu, baru `0002_product_images_storage.sql` (tanpa yang kedua, upload foto produk akan gagal).
 5. **Aktifkan Google OAuth** (opsional, untuk tombol "Lanjutkan dengan Google"): Authentication → Providers → Google, di dashboard Supabase.
 6. **Jalankan dev server**:
    ```bash

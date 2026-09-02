@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 
 const blocks = [
   { icon: Video, label: 'Video unggulan', tone: 'bg-ink text-amber-400' },
@@ -42,7 +43,7 @@ export default function CoreFeatures() {
   return (
     <section id="features" className="scroll-mt-24 bg-white py-20 sm:py-28">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Fitur inti</Eyebrow>
           <h2 className="text-balance mt-5 font-display text-3xl font-bold tracking-tight text-ink sm:text-[44px]">
             Dibangun seperti software bisnis sungguhan — bukan sekadar daftar link.
@@ -52,7 +53,7 @@ export default function CoreFeatures() {
             back office kamu tidak pernah terasa seperti tools terpisah yang
             ditempel-tempel.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-6">
           {/* Page builder - large */}

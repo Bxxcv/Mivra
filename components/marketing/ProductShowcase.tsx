@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link2, Store, LayoutDashboard, BarChart3 } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 import PhoneFrame from '@/components/mockups/PhoneFrame';
 import BioPageMockup from '@/components/mockups/BioPageMockup';
 import StorefrontMockup from '@/components/mockups/StorefrontMockup';
@@ -46,7 +47,7 @@ export default function ProductShowcase() {
   return (
     <section id="showcase" className="scroll-mt-24 py-20 sm:py-28">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Lihat langsung aksinya</Eyebrow>
           <h2 className="text-balance mt-5 font-display text-3xl font-bold tracking-tight text-ink sm:text-[44px]">
             Satu halaman. Empat pengalaman.
@@ -55,7 +56,7 @@ export default function ProductShowcase() {
             Beralih antara tampilan yang dilihat audiensmu dan cara kamu
             menjalankan bisnis di baliknya.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
           <div className="flex gap-3 overflow-x-auto pb-2 lg:col-span-4 lg:flex-col lg:overflow-visible lg:pb-0">

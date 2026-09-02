@@ -1,6 +1,7 @@
 import { CreditCard, Wallet, Smartphone, ShieldCheck, Zap, Globe2, ArrowDownToLine } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 
 const points = [
   {
@@ -29,7 +30,7 @@ export default function Commerce() {
   return (
     <section id="commerce" className="scroll-mt-24 bg-white py-20 sm:py-28">
       <Container>
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
+        <Reveal className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
           <div>
             <Eyebrow icon={<Wallet className="h-3.5 w-3.5" />}>Pembayaran &amp; commerce</Eyebrow>
             <h2 className="text-balance mt-5 font-display text-3xl font-bold tracking-tight text-ink sm:text-[40px]">
@@ -98,7 +99,7 @@ export default function Commerce() {
               </button>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

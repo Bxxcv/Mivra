@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Check, Sparkles } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 
 const plans = [
   {
@@ -54,7 +55,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="scroll-mt-24 py-20 sm:py-28">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Harga</Eyebrow>
           <h2 className="text-balance mt-5 font-display text-3xl font-bold tracking-tight text-ink sm:text-[44px]">
             Harga simpel yang tumbuh bersamamu.
@@ -85,7 +86,7 @@ export default function Pricing() {
               </span>
             </button>
           </div>
-        </div>
+        </Reveal>
 
         <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
           {plans.map((plan) => (

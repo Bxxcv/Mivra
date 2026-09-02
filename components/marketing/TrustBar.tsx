@@ -1,5 +1,6 @@
 import { Users2, Globe2, PackageCheck, ShieldCheck } from 'lucide-react';
 import Container from '@/components/ui/Container';
+import Reveal from '@/components/ui/Reveal';
 
 const brands = [
   'Northlane',
@@ -41,7 +42,7 @@ export default function TrustBar() {
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-6 border-t border-ink/8 pt-10 sm:grid-cols-4">
+        <Reveal className="mt-12 grid grid-cols-2 gap-6 border-t border-ink/8 pt-10 sm:grid-cols-4">
           {stats.map(({ icon: Icon, value, label }) => (
             <div key={label} className="flex flex-col items-center text-center sm:items-start sm:text-left">
               <div className="mb-2.5 flex h-9 w-9 items-center justify-center rounded-full bg-amber-50 text-amber-600">
@@ -51,7 +52,7 @@ export default function TrustBar() {
               <p className="text-[13px] text-ink-400">{label}</p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

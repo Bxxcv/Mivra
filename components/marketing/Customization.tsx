@@ -1,6 +1,7 @@
 import { Paintbrush, Type, LayoutTemplate, Globe, Check } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import Eyebrow from '@/components/ui/Eyebrow';
+import Reveal from '@/components/ui/Reveal';
 
 const themes = [
   { name: 'Amber', bg: 'bg-[#FFF4E8]', accent: 'bg-amber-500', active: true },
@@ -36,7 +37,7 @@ export default function Customization() {
   return (
     <section id="customization" className="scroll-mt-24 py-20 sm:py-28">
       <Container>
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
+        <Reveal className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
           <div className="order-2 lg:order-1">
             <div className="grid grid-cols-2 gap-4">
               {themes.map((t) => (
@@ -101,7 +102,7 @@ export default function Customization() {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );
