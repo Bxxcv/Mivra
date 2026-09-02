@@ -1,0 +1,28 @@
+# Dependencies
+/node_modules
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+
+# Production
+/build
+
+# Env — JANGAN PERNAH commit file .env asli (cuma .env.example yang boleh)
+.env
+.env*.local
+
+# Misc
+.DS_Store
+*.pem
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Supabase local dev
+/supabase/.branches
+/supabase/.temp
+
+# TypeScript
+*.tsbuildinfo

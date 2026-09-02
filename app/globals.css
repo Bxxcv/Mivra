@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* Design token MIVRA — lihat docs/DESAIN.md. Jangan ubah nilai di sini
+   tanpa update docs/DESAIN.md juga. */
+@theme {
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #FBF8F2;
+  --color-cream-100: #F5F0E6;
+  --color-paper: #FFFFFF;
+
+  --color-ink: #17140F;
+  --color-ink-800: #241F18;
+  --color-ink-600: #423B30;
+  --color-ink-400: #6B6255;
+
+  --color-amber-50: #FFF4E8;
+  --color-amber-100: #FFE6C7;
+  --color-amber-200: #FFCE94;
+  --color-amber-300: #FFB35C;
+  --color-amber-400: #FF9C3A;
+  --color-amber-500: #F5810F;
+  --color-amber-600: #DA6A05;
+  --color-amber-700: #B45509;
+  --color-amber-900: #5C2C08;
+
+  --color-forest-50: #EAF3EE;
+  --color-forest-100: #CDE4D5;
+  --color-forest-400: #3E8A63;
+  --color-forest-500: #26714A;
+  --color-forest-600: #1B5B3B;
+  --color-forest-900: #0D2F1E;
+
+  --color-navy-500: #1E2A4A;
+  --color-navy-700: #131B30;
+  --color-navy-900: #0B1020;
+
+  --shadow-soft: 0 1px 2px rgba(23, 20, 15, 0.04), 0 8px 24px -8px rgba(23, 20, 15, 0.10);
+  --shadow-card: 0 1px 1px rgba(23,20,15,0.03), 0 12px 32px -12px rgba(23,20,15,0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-amber-300);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-amber-200);
+  border-radius: 999px;
+  border: 2px solid var(--color-cream);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-amber-300);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+.grid-fade {
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+@keyframes float-y-slow {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+.animate-float-slow {
+  animation: float-y-slow 7s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
