@@ -36,3 +36,5 @@ Log task yang sudah selesai, urut dari terbaru. Format: `- [x] YYYY-MM-DD — De
 - [x] 2026-09-02 — Migration 0002: storage bucket product-images + RLS (publik bisa lihat, user cuma bisa upload/hapus di folder miliknya sendiri)
 - [x] 2026-09-02 — Katalog Produk fungsional: tambah produk (dengan upload gambar, validasi tipe/ukuran file), hapus, sembunyikan/tampilkan — limit 5/500 tier ditegakkan di server
 - [x] 2026-09-02 — Halaman publik [username] sekarang render grid produk asli dari database
+- [x] 2026-09-02 — Komponen PasswordInput reusable (ikon mata show/hide) dipasang di halaman login & daftar
+- [x] 2026-09-02 — Bangun Admin Master (/admin): proteksi lewat ADMIN_EMAILS di env (bukan tombol UI), list semua user + jumlah link/produk, tombol toggle tier Gratis↔Premium (server action dobel-cek admin)

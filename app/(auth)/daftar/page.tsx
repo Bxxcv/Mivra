@@ -4,6 +4,7 @@ import { useState, type FormEvent } from 'react';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import Container from '@/components/ui/Container';
+import PasswordInput from '@/components/ui/PasswordInput';
 
 export default function DaftarPage() {
   const supabase = createClient();
@@ -116,15 +117,13 @@ export default function DaftarPage() {
               <label htmlFor="password" className="mb-1.5 block text-[13px] font-semibold text-ink-600">
                 Kata sandi
               </label>
-              <input
+              <PasswordInput
                 id="password"
-                type="password"
                 required
                 minLength={8}
                 autoComplete="new-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full rounded-xl border border-ink/10 bg-cream-100 px-4 py-3 text-[14.5px] text-ink outline-none focus:border-amber-400"
               />
               <p className="mt-1.5 text-[12px] text-ink-400">Minimal 8 karakter.</p>
             </div>

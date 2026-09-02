@@ -15,9 +15,11 @@ Format: `- [ ] (Fase) Deskripsi task — catatan`
 
 ## Fase 1 — Sisa Setup Manual (perlu dikonfirmasi Farid sudah/belum)
 
-- [ ] Setup Google OAuth di Supabase Auth provider settings
+- [ ] Setup Google OAuth di Supabase Auth provider settings (dashboard Supabase → Authentication → Sign In/Providers → Google)
+- [ ] **Isi ADMIN_EMAILS di Vercel env var** dengan email Farid — tanpa ini /admin akan 404 walau sudah login
 - [ ] Setup GitHub Actions CI dasar (lint + type-check di tiap PR)
 - [ ] Uji alur daftar → login → cek baris otomatis muncul di tabel `profiles`
+- [ ] Keputusan: matikan "Confirm email" di Supabase Auth settings supaya user langsung bisa login setelah daftar tanpa cek email dulu (trade-off: rawan email palsu — didiskusikan, belum final)
 
 ## Menunggu Keputusan Farid
 
