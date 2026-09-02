@@ -33,7 +33,7 @@ export default function LoginPage() {
       setError('Email atau kata sandi salah. Coba lagi.');
       return;
     }
-    router.push('/dashboard');
+    router.push('/ringkasan');
     router.refresh();
   }
 
