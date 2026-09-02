@@ -14,7 +14,7 @@ export default function BioPageMockup() {
       <div className="flex-1 overflow-hidden px-5 pb-5 pt-4">
         <div className="flex flex-col items-center text-center">
           <div className="h-20 w-20 overflow-hidden rounded-full ring-4 ring-white shadow-md">
-            <img src="/images/avatar-1.jpg" alt="Avatar kreator" className="h-full w-full object-cover" />
+            <img src="/images/avatar-1.webp" alt="Avatar kreator" className="h-full w-full object-cover" />
           </div>
           <div className="mt-3 flex items-center gap-1">
             <span className="font-display text-[16px] font-bold text-ink">@lunacreates</span>
@@ -63,7 +63,7 @@ export default function BioPageMockup() {
           <div className="grid grid-cols-2 gap-2.5">
             <div className="overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-sm">
               <div className="aspect-square w-full overflow-hidden">
-                <img src="/images/product-hoodie.jpg" alt="Hoodie" className="h-full w-full object-cover" />
+                <img src="/images/product-hoodie.webp" alt="Hoodie" className="h-full w-full object-cover" />
               </div>
               <div className="px-2.5 py-2">
                 <p className="truncate text-[11.5px] font-semibold text-ink">Hoodie Nyaman</p>
@@ -72,7 +72,7 @@ export default function BioPageMockup() {
             </div>
             <div className="overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-sm">
               <div className="aspect-square w-full overflow-hidden">
-                <img src="/images/product-mug.jpg" alt="Mug" className="h-full w-full object-cover" />
+                <img src="/images/product-mug.webp" alt="Mug" className="h-full w-full object-cover" />
               </div>
               <div className="px-2.5 py-2">
                 <p className="truncate text-[11.5px] font-semibold text-ink">Mug Pagi Hari</p>

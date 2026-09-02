@@ -35,7 +35,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-10 border-b border-ink/8 pb-14 sm:grid-cols-3 lg:grid-cols-6">
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
             <a href="#hero" className="flex items-center gap-2.5">
-              <img src="/mascot/mascot-main.png" alt="Mivra" className="h-10 w-10 object-contain" />
+              <img src="/mascot/mascot-main.webp" alt="Mivra" className="h-10 w-10 object-contain" />
               <span className="font-display text-[21px] font-bold tracking-tight text-ink">Mivra</span>
             </a>
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-ink-400">

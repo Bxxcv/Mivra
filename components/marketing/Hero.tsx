@@ -5,11 +5,11 @@ import PhoneFrame from '@/components/mockups/PhoneFrame';
 import BioPageMockup from '@/components/mockups/BioPageMockup';
 
 const avatars = [
-  '/images/avatar-1.jpg',
-  '/images/avatar-2.jpg',
-  '/images/avatar-3.jpg',
-  '/images/avatar-4.jpg',
-  '/images/avatar-5.jpg',
+  '/images/avatar-1.webp',
+  '/images/avatar-2.webp',
+  '/images/avatar-3.webp',
+  '/images/avatar-4.webp',
+  '/images/avatar-5.webp',
 ];
 
 export default function Hero() {
@@ -29,7 +29,7 @@ export default function Hero() {
       <Container>
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-10">
           <div className="max-w-xl">
-            <Eyebrow icon={<img src="/mascot/mascot-main.png" alt="" className="h-4 w-4 object-contain" />}>
+            <Eyebrow icon={<img src="/mascot/mascot-main.webp" alt="" className="h-4 w-4 object-contain" />}>
               Satu rumah untuk seluruh bisnis kreatormu
             </Eyebrow>
 
@@ -119,7 +119,7 @@ export default function Hero() {
             </div>
 
             <img
-              src="/mascot/mascot-wave.png"
+              src="/mascot/mascot-wave.webp"
               alt="Maskot Mivra melambai"
               className="animate-float-slow pointer-events-none absolute -bottom-10 -left-6 h-28 w-28 object-contain drop-shadow-xl sm:h-32 sm:w-32"
             />

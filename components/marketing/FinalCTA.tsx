@@ -68,7 +68,7 @@ export default function FinalCTA() {
       </Container>
 
       <img
-        src="/mascot/mascot-wallet.png"
+        src="/mascot/mascot-wallet.webp"
         alt=""
         className="animate-float-slow pointer-events-none absolute bottom-0 right-4 hidden h-36 w-36 object-contain opacity-95 sm:block lg:right-16 lg:h-44 lg:w-44"
       />

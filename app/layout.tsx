@@ -23,7 +23,8 @@ export const metadata: Metadata = {
     type: 'website',
   },
   icons: {
-    icon: '/favicon.svg',
+    icon: '/mascot/mascot-main.webp',
+    apple: '/mascot/mascot-main.webp',
   },
 };
 

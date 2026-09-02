@@ -53,7 +53,7 @@ export default function DaftarPage() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-cream py-16">
         <Container className="max-w-md text-center">
-          <img src="/mascot/mascot-wave.png" alt="" className="mx-auto h-24 w-24 object-contain" />
+          <img src="/mascot/mascot-wave.webp" alt="" className="mx-auto h-24 w-24 object-contain" />
           <h1 className="mt-4 font-display text-[22px] font-bold text-ink">Cek email kamu!</h1>
           <p className="mt-2 text-[14.5px] text-ink-500">
             Kami sudah mengirim link konfirmasi ke <strong>{email}</strong>. Klik link
@@ -69,7 +69,7 @@ export default function DaftarPage() {
       <Container className="max-w-md">
         <div className="rounded-3xl border border-ink/8 bg-white p-8 shadow-soft">
           <Link href="/" className="flex items-center gap-2.5">
-            <img src="/mascot/mascot-main.png" alt="Mivra" className="h-9 w-9 object-contain" />
+            <img src="/mascot/mascot-main.webp" alt="Mivra" className="h-9 w-9 object-contain" />
             <span className="font-display text-[19px] font-bold text-ink">Mivra</span>
           </Link>
 

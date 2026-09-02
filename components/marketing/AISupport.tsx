@@ -58,7 +58,7 @@ export default function AISupport() {
 
           <div className="mx-auto w-full max-w-md overflow-hidden rounded-3xl border border-ink/8 bg-cream shadow-card">
             <div className="flex items-center gap-3 border-b border-ink/8 bg-ink px-5 py-4">
-              <img src="/mascot/mascot-support.png" alt="Asisten AI Mivra" className="h-9 w-9 rounded-full bg-amber-400/20 object-contain p-0.5" />
+              <img src="/mascot/mascot-support.webp" alt="Asisten AI Mivra" className="h-9 w-9 rounded-full bg-amber-400/20 object-contain p-0.5" />
               <div>
                 <p className="text-[13.5px] font-bold text-cream">Asisten AI Mivra</p>
                 <p className="flex items-center gap-1.5 text-[11px] text-cream/60">
@@ -73,7 +73,7 @@ export default function AISupport() {
               </div>
 
               <div className="flex max-w-[85%] items-end gap-2">
-                <img src="/mascot/mascot-support.png" alt="" className="h-6 w-6 shrink-0 object-contain" />
+                <img src="/mascot/mascot-support.webp" alt="" className="h-6 w-6 shrink-0 object-contain" />
                 <div className="rounded-2xl rounded-tl-sm border border-ink/8 bg-white px-4 py-2.5 text-[13.5px] text-ink-600">
                   Bisa banget! 🌍 Pengiriman reguler ke Surabaya sekitar
                   2–4 hari kerja dan ongkirnya Rp 15.000.

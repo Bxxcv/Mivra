@@ -14,12 +14,12 @@ import Eyebrow from '@/components/ui/Eyebrow';
 
 const featured = [
   {
-    img: '/images/usecase-creator.jpg',
+    img: '/images/usecase-creator.webp',
     title: 'Kreator & influencer',
     desc: 'Ubah followers jadi pelanggan lewat satu halaman untuk konten, merchandise, dan penawaran berbayar.',
   },
   {
-    img: '/images/usecase-business.jpg',
+    img: '/images/usecase-business.webp',
     title: 'Bisnis kecil & UMKM',
     desc: 'Jalankan seluruh etalase tokomu — katalog, checkout, dan pengiriman — tanpa perlu website sendiri.',
   },

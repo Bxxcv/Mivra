@@ -42,7 +42,7 @@ export default function LoginPage() {
       <Container className="max-w-md">
         <div className="rounded-3xl border border-ink/8 bg-white p-8 shadow-soft">
           <Link href="/" className="flex items-center gap-2.5">
-            <img src="/mascot/mascot-main.png" alt="Mivra" className="h-9 w-9 object-contain" />
+            <img src="/mascot/mascot-main.webp" alt="Mivra" className="h-9 w-9 object-contain" />
             <span className="font-display text-[19px] font-bold text-ink">Mivra</span>
           </Link>
 

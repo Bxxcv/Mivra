@@ -59,7 +59,7 @@ export default function Commerce() {
             <div className="mx-auto max-w-sm rounded-3xl border border-ink/8 bg-cream p-6 shadow-card">
               <p className="text-[12px] font-bold uppercase tracking-wide text-ink-400">Checkout</p>
               <div className="mt-4 flex items-center gap-3 rounded-2xl bg-white p-3">
-                <img src="/images/product-course.jpg" alt="Kelas Content Creator" className="h-14 w-14 rounded-xl object-cover" />
+                <img src="/images/product-course.webp" alt="Kelas Content Creator" className="h-14 w-14 rounded-xl object-cover" />
                 <div className="flex-1">
                   <p className="text-[13.5px] font-semibold text-ink">Kelas Content Creator</p>
                   <p className="text-[12px] text-ink-400">Digital · Akses instan</p>

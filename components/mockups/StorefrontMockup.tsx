@@ -2,10 +2,10 @@ import { ShoppingCart, Search } from 'lucide-react';
 import BrowserFrame from './BrowserFrame';
 
 const products = [
-  { img: '/images/product-hoodie.jpg', name: 'Hoodie Nyaman', price: 'Rp 148.000', tag: 'Fisik' },
-  { img: '/images/product-mug.jpg', name: 'Mug Pagi Hari', price: 'Rp 55.000', tag: 'Fisik' },
-  { img: '/images/product-course.jpg', name: 'Kelas Konten', price: 'Rp 249.000', tag: 'Digital' },
-  { img: '/images/product-vinyl.jpg', name: 'Vinyl Bertanda Tangan', price: 'Rp 99.000', tag: 'Terbatas' },
+  { img: '/images/product-hoodie.webp', name: 'Hoodie Nyaman', price: 'Rp 148.000', tag: 'Fisik' },
+  { img: '/images/product-mug.webp', name: 'Mug Pagi Hari', price: 'Rp 55.000', tag: 'Fisik' },
+  { img: '/images/product-course.webp', name: 'Kelas Konten', price: 'Rp 249.000', tag: 'Digital' },
+  { img: '/images/product-vinyl.webp', name: 'Vinyl Bertanda Tangan', price: 'Rp 99.000', tag: 'Terbatas' },
 ];
 
 export default function StorefrontMockup() {

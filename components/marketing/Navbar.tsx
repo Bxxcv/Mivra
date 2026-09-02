@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out ${
         scrolled ? 'bg-cream/85 backdrop-blur-lg border-b border-ink/8 shadow-[0_1px_0_rgba(23,20,15,0.04)]' : 'bg-transparent border-b border-transparent'
       }`}
     >
@@ -33,7 +33,7 @@ export default function Navbar() {
         <nav className="flex h-18 items-center justify-between py-3.5">
           <a href="#hero" className="flex items-center gap-2.5 shrink-0">
             <img
-              src="/mascot/mascot-main.png"
+              src="/mascot/mascot-main.webp"
               alt="Maskot Mivra"
               className="h-10 w-10 object-contain"
             />
