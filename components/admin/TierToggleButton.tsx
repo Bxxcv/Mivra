@@ -4,10 +4,10 @@ import { useTransition } from 'react';
 import { adminSetUserTier } from '@/app/(admin)/admin/actions';
 import type { Tier } from '@/lib/limits';
 
-export default function TierToggleButton({ userId, tier }: { userId: string;tier: Tier }) {
+export default function TierToggleButton({ userId, tier }: { userId: string; tier: Tier }) {
   const [isPending, startTransition] = useTransition();
   const nextTier: Tier = tier === 'premium' ? 'free' : 'premium';
-  
+
   return (
     <button
       type="button"

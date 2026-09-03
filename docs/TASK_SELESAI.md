@@ -38,3 +38,6 @@ Log task yang sudah selesai, urut dari terbaru. Format: `- [x] YYYY-MM-DD — De
 - [x] 2026-09-02 — Halaman publik [username] sekarang render grid produk asli dari database
 - [x] 2026-09-02 — Komponen PasswordInput reusable (ikon mata show/hide) dipasang di halaman login & daftar
 - [x] 2026-09-02 — Bangun Admin Master (/admin): proteksi lewat ADMIN_EMAILS di env (bukan tombol UI), list semua user + jumlah link/produk, tombol toggle tier Gratis↔Premium (server action dobel-cek admin)
+- [x] 2026-09-02 — Fix bug: redirect setelah login mengarah ke /dashboard (route yang tidak pernah ada — (dashboard) adalah route group, bukan URL) → diperbaiki ke /ringkasan (ditemukan Kimi AI, diverifikasi & digabung)
+- [x] 2026-09-02 — Tambah queryParams prompt: select_account di Google OAuth (Kimi AI) supaya akun Google selalu ditanya ulang, bantu kurangi state basi
+- [x] 2026-09-02 — Revert regresi middleware.ts dari edit eksternal yang menghapus baris response = NextResponse.next({ request }) — baris ini wajib ada di pola resmi @supabase/ssr, tanpanya sinkronisasi cookie sesi rusak
