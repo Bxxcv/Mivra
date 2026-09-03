@@ -17,8 +17,8 @@ export default function TierToggleButton({ userId, tier }: { userId: string; tie
           await adminSetUserTier(userId, nextTier);
         })
       }
-      className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition-colors disabled:opacity-50 ${
-        tier === 'premium' ? 'bg-amber-400 text-ink' : 'bg-white/10 text-cream/70 hover:bg-white/15'
+      className={`rounded-full px-3 py-1.5 text-[10.5px] font-bold transition-colors disabled:opacity-50 ${
+        tier === 'premium' ? 'bg-amber-400 text-ink' : 'bg-white/[0.06] text-cream/60 hover:bg-white/10'
       }`}
     >
       {isPending ? '…' : tier === 'premium' ? 'Premium — jadikan Gratis' : 'Gratis — jadikan Premium'}

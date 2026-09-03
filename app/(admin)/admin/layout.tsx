@@ -19,12 +19,21 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (!isAdminEmail(user.email)) notFound();
 
   return (
-    <div className="min-h-screen bg-ink">
-      <header className="border-b border-white/10 px-6 py-4">
-        <p className="font-display text-[16px] font-bold text-cream">Mivra · Admin Master</p>
-        <p className="text-[11.5px] text-cream/50">Masuk sebagai {user.email}</p>
+    <div className="min-h-screen bg-[#0B0A08] font-sans text-cream">
+      <header className="flex items-center justify-between border-b border-amber-400/15 bg-ink px-6 py-3.5">
+        <div className="flex items-center gap-2.5">
+          <img src="/mascot/mascot-main.webp" alt="" className="h-7 w-7 object-contain grayscale" />
+          <div>
+            <p className="font-display text-[14px] font-bold leading-none text-cream">Mivra Master</p>
+            <p className="mt-0.5 text-[10.5px] font-medium leading-none text-cream/40">Panel internal — bukan untuk seller</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-forest-400 animate-pulse-dot" />
+          <span className="text-[11px] font-medium text-cream/50">{user.email}</span>
+        </div>
       </header>
-      <main className="p-6">{children}</main>
+      <main className="p-6 sm:p-8">{children}</main>
     </div>
   );
 }

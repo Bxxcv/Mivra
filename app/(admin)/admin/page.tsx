@@ -1,7 +1,7 @@
 import { createAdminClient } from '@/lib/supabase/server';
 import TierToggleButton from '@/components/admin/TierToggleButton';
 import type { Tier } from '@/lib/limits';
-import { Users2, Link2, ShoppingBag } from 'lucide-react';
+import { Users2, Sparkles } from 'lucide-react';
 
 export default async function AdminPage() {
   const admin = createAdminClient();
@@ -24,27 +24,31 @@ export default async function AdminPage() {
 
   return (
     <div>
-      <h1 className="font-display text-[20px] font-bold text-cream">Semua User</h1>
+      <div className="mb-6 flex items-baseline justify-between">
+        <h1 className="font-display text-[22px] font-bold text-cream">Semua User</h1>
+        <p className="font-mono text-[11px] text-cream/30">{total} total · {premiumCount} premium</p>
+      </div>
 
-      <div className="mt-4 grid grid-cols-3 gap-3">
-        <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-          <div className="flex items-center gap-2 text-cream/50">
-            <Users2 className="h-4 w-4" /> <span className="text-[11px] font-semibold">Total user</span>
-          </div>
-          <p className="mt-1.5 font-display text-[20px] font-bold text-cream">{total}</p>
+      <div className="grid grid-cols-3 gap-3">
+        <div className="rounded-2xl bg-white/[0.04] p-5">
+          <Users2 className="h-4 w-4 text-cream/30" />
+          <p className="mt-3 font-display text-[26px] font-bold leading-none text-cream">{total}</p>
+          <p className="mt-1 text-[11.5px] font-medium text-cream/40">Total user terdaftar</p>
         </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-          <p className="text-[11px] font-semibold text-cream/50">Premium</p>
-          <p className="mt-1.5 font-display text-[20px] font-bold text-amber-400">{premiumCount}</p>
+        <div className="rounded-2xl bg-gradient-to-br from-amber-400/15 to-transparent p-5 ring-1 ring-inset ring-amber-400/20">
+          <Sparkles className="h-4 w-4 text-amber-400" />
+          <p className="mt-3 font-display text-[26px] font-bold leading-none text-amber-400">{premiumCount}</p>
+          <p className="mt-1 text-[11.5px] font-medium text-cream/40">Berlangganan Premium</p>
         </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-          <p className="text-[11px] font-semibold text-cream/50">Gratis</p>
-          <p className="mt-1.5 font-display text-[20px] font-bold text-cream">{total - premiumCount}</p>
+        <div className="rounded-2xl bg-white/[0.04] p-5">
+          <p className="text-[16px]">🐹</p>
+          <p className="mt-3 font-display text-[26px] font-bold leading-none text-cream">{total - premiumCount}</p>
+          <p className="mt-1 text-[11.5px] font-medium text-cream/40">Masih tier Gratis</p>
         </div>
       </div>
 
-      <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
-        <div className="grid grid-cols-6 gap-2 bg-white/5 px-4 py-2.5 text-[11px] font-bold uppercase tracking-wide text-cream/40">
+      <div className="mt-6 overflow-hidden rounded-2xl bg-white/[0.03]">
+        <div className="grid grid-cols-6 gap-2 border-b border-white/5 px-5 py-3 text-[10.5px] font-bold uppercase tracking-wider text-cream/30">
           <span className="col-span-2">User</span>
           <span>Tier</span>
           <span>Link</span>
@@ -54,32 +58,28 @@ export default async function AdminPage() {
         {(profiles ?? []).map((p) => (
           <div
             key={p.id}
-            className="grid grid-cols-6 items-center gap-2 border-t border-white/5 px-4 py-3 text-[13px]"
+            className="grid grid-cols-6 items-center gap-2 border-b border-white/5 px-5 py-3.5 text-[13px] last:border-b-0 hover:bg-white/[0.02]"
           >
             <div className="col-span-2">
               <p className="font-semibold text-cream">@{p.username}</p>
-              <p className="text-[11px] text-cream/40">{p.display_name || '—'}</p>
+              <p className="text-[11px] text-cream/35">{p.display_name || '—'}</p>
             </div>
             <span
               className={`w-fit rounded-full px-2.5 py-1 text-[10.5px] font-bold ${
-                p.tier === 'premium' ? 'bg-amber-400/20 text-amber-400' : 'bg-white/10 text-cream/60'
+                p.tier === 'premium' ? 'bg-amber-400/15 text-amber-400' : 'bg-white/[0.06] text-cream/50'
               }`}
             >
               {p.tier === 'premium' ? 'Premium' : 'Gratis'}
             </span>
-            <span className="flex items-center gap-1 text-cream/60">
-              <Link2 className="h-3 w-3" /> {linkCountMap.get(p.id) ?? 0}
-            </span>
-            <span className="flex items-center gap-1 text-cream/60">
-              <ShoppingBag className="h-3 w-3" /> {productCountMap.get(p.id) ?? 0}
-            </span>
+            <span className="font-mono text-[12.5px] text-cream/50">{linkCountMap.get(p.id) ?? 0}</span>
+            <span className="font-mono text-[12.5px] text-cream/50">{productCountMap.get(p.id) ?? 0}</span>
             <div className="flex justify-end">
               <TierToggleButton userId={p.id} tier={(p.tier as Tier) ?? 'free'} />
             </div>
           </div>
         ))}
         {total === 0 && (
-          <p className="px-4 py-8 text-center text-[13px] text-cream/40">Belum ada user terdaftar.</p>
+          <p className="px-5 py-10 text-center text-[13px] text-cream/30">Belum ada user terdaftar.</p>
         )}
       </div>
     </div>

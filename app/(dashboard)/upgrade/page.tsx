@@ -40,10 +40,15 @@ export default async function UpgradePage() {
 
   return (
     <div>
-      <h1 className="font-display text-[22px] font-bold text-ink">Upgrade ke Premium</h1>
-      <p className="mt-1 text-[13.5px] text-ink-400">
-        Pembayaran langganan belum aktif (menyusul di Fase 8) — halaman ini pratinjau paket.
-      </p>
+      <div className="flex items-center gap-3">
+        <img src="/mascot/mascot-wallet.webp" alt="" className="h-11 w-11 object-contain" />
+        <div>
+          <h1 className="font-display text-[22px] font-bold text-ink">Upgrade ke Premium</h1>
+          <p className="text-[13.5px] text-ink-400">
+            Pembayaran langganan belum aktif (menyusul di Fase 8) — halaman ini pratinjau paket.
+          </p>
+        </div>
+      </div>
 
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div className="rounded-3xl border border-ink/8 bg-white p-6">

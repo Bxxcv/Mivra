@@ -35,15 +35,23 @@ export default async function HalamanBioPage() {
 
       {tier === 'free' && (
         <div
-          className={`mt-4 rounded-xl border px-4 py-3 text-[13px] font-medium ${
-            atLimit
-              ? 'border-amber-300 bg-amber-50 text-amber-700'
-              : 'border-ink/8 bg-white text-ink-500'
+          className={`mt-4 rounded-2xl border px-4 py-3.5 ${
+            atLimit ? 'border-amber-300 bg-amber-50' : 'border-ink/8 bg-white'
           }`}
         >
-          {atLimit
-            ? `Kamu sudah pakai ${linkCount}/${limits.maxLinks} slot link Gratis. Upgrade ke Premium untuk link tanpa batas.`
-            : `${linkCount}/${limits.maxLinks} link terpakai (tier Gratis).`}
+          <div className="flex items-center justify-between text-[13px] font-medium">
+            <span className={atLimit ? 'text-amber-700' : 'text-ink-500'}>
+              {atLimit
+                ? `Slot link Gratis penuh — upgrade untuk tanpa batas`
+                : `${linkCount}/${limits.maxLinks} link terpakai`}
+            </span>
+          </div>
+          <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-ink/8">
+            <div
+              className={`h-full rounded-full transition-all ${atLimit ? 'bg-amber-500' : 'bg-forest-500'}`}
+              style={{ width: `${Math.min(100, (linkCount / limits.maxLinks) * 100)}%` }}
+            />
+          </div>
         </div>
       )}
 
