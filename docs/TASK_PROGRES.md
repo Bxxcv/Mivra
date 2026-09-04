@@ -10,6 +10,7 @@ Format: `- [ ] (Fase) Deskripsi task — catatan`
 
 - [ ] **Jalankan migration 0002** (`supabase/migrations/0002_product_images_storage.sql`) di Supabase — belum otomatis, perlu di-push manual sama seperti 0001
 - [ ] Kategori produk (tabel `categories` sudah ada, UI kelola kategori belum dibangun) — dibutuhkan sebelum search & filter Premium bisa dipakai
+- [ ] **Saat Fase 6 dibangun**: ganti VisitChart.tsx & TrafficDonut.tsx (dashboard seller) dari data contoh ke query analytics_events asli — hapus DemoDataBadge setelah itu
 - [ ] Gallery/portofolio (khusus Premium) — masih placeholder ComingSoon
 - [ ] Halaman detail produk (`/username/produk/slug`) — sekarang klik produk di halaman publik belum ke mana-mana
 
@@ -19,7 +20,7 @@ Format: `- [ ] (Fase) Deskripsi task — catatan`
 - [ ] **Isi ADMIN_EMAILS di Vercel env var** dengan email Farid — tanpa ini /admin akan 404 walau sudah login
 - [ ] Setup GitHub Actions CI dasar (lint + type-check di tiap PR)
 - [ ] Uji alur daftar → login → cek baris otomatis muncul di tabel `profiles`
-- [ ] Keputusan: matikan "Confirm email" di Supabase Auth settings supaya user langsung bisa login setelah daftar tanpa cek email dulu (trade-off: rawan email palsu — didiskusikan, belum final)
+- [ ] **Matikan "Confirm email"** di Supabase Auth settings (Authentication > Sign In/Providers) — kode sudah siap otomatis redirect ke dashboard begitu ini dimatikan, tinggal togglenya
 
 ## Menunggu Keputusan Farid
 

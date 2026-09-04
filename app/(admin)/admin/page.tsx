@@ -2,6 +2,8 @@ import { createAdminClient } from '@/lib/supabase/server';
 import TierToggleButton from '@/components/admin/TierToggleButton';
 import type { Tier } from '@/lib/limits';
 import { Users2, Sparkles } from 'lucide-react';
+import SignupsChart from '@/components/admin/SignupsChart';
+import TierDonut from '@/components/admin/TierDonut';
 
 export default async function AdminPage() {
   const admin = createAdminClient();
@@ -21,6 +23,18 @@ export default async function AdminPage() {
 
   const total = profiles?.length ?? 0;
   const premiumCount = profiles?.filter((p) => p.tier === 'premium').length ?? 0;
+
+  // Hitung pendaftaran per hari 7 hari terakhir — data ASLI dari kolom
+  // created_at, bukan contoh.
+  const dayLabels = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+  const signupsByDay: { day: string; jumlah: number }[] = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    const dateStr = d.toDateString();
+    const count = (profiles ?? []).filter((p) => new Date(p.created_at).toDateString() === dateStr).length;
+    signupsByDay.push({ day: dayLabels[d.getDay()]!, jumlah: count });
+  }
 
   return (
     <div>
@@ -44,6 +58,15 @@ export default async function AdminPage() {
           <p className="text-[16px]">🐹</p>
           <p className="mt-3 font-display text-[26px] font-bold leading-none text-cream">{total - premiumCount}</p>
           <p className="mt-1 text-[11.5px] font-medium text-cream/40">Masih tier Gratis</p>
+        </div>
+      </div>
+
+      <div className="mt-4 grid grid-cols-1 gap-3 lg:grid-cols-5">
+        <div className="lg:col-span-3">
+          <SignupsChart data={signupsByDay} />
+        </div>
+        <div className="lg:col-span-2">
+          <TierDonut free={total - premiumCount} premium={premiumCount} />
         </div>
       </div>
 

@@ -1,19 +1,27 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import Container from '@/components/ui/Container';
 import PasswordInput from '@/components/ui/PasswordInput';
 
 export default function DaftarPage() {
+  const router = useRouter();
   const supabase = createClient();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [done, setDone] = useState(false);
+  const [needsEmailConfirm, setNeedsEmailConfirm] = useState(false);
+
+  // Prefill email kalau datang dari form di landing page (FinalCTA).
+  useEffect(() => {
+    const prefill = new URLSearchParams(window.location.search).get('email');
+    if (prefill) setEmail(prefill);
+  }, []);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -27,9 +35,9 @@ export default function DaftarPage() {
 
     setLoading(true);
 
-    // Sign up dulu — insert ke tabel profiles dilakukan lewat trigger
-    // on_auth_user_created di Supabase (dibuat di migration berikutnya),
-    // supaya username tervalidasi & reserved-word check jalan otomatis.
+    // Baris profiles otomatis dibuat lewat trigger on_auth_user_created di
+    // Supabase (lihat supabase/migrations/0001_init.sql), termasuk validasi
+    // username & reserved-word check.
     const { data, error: signUpError } = await supabase.auth.signUp({
       email,
       password,
@@ -47,10 +55,20 @@ export default function DaftarPage() {
       return;
     }
 
-    if (data.user) setDone(true);
+    // Kalau "Confirm email" MATI di pengaturan Supabase, signUp langsung
+    // mengembalikan session aktif — langsung masuk dashboard tanpa harus
+    // cek email. Kalau "Confirm email" MASIH aktif, session-nya kosong dan
+    // kita tampilkan layar "cek email" sebagai fallback.
+    if (data.session) {
+      router.push('/ringkasan');
+      router.refresh();
+      return;
+    }
+
+    if (data.user) setNeedsEmailConfirm(true);
   }
 
-  if (done) {
+  if (needsEmailConfirm) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-cream py-16">
         <Container className="max-w-md text-center">

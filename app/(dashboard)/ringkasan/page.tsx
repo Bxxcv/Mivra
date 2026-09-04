@@ -1,6 +1,8 @@
 import { createClient } from '@/lib/supabase/server';
 import { getLimits, type Tier } from '@/lib/limits';
 import { Link2, ShoppingBag, Eye, ArrowUpRight, Sparkles } from 'lucide-react';
+import VisitChart from '@/components/dashboard/VisitChart';
+import TrafficDonut from '@/components/dashboard/TrafficDonut';
 
 export default async function RingkasanPage() {
   const supabase = await createClient();
@@ -95,6 +97,16 @@ export default async function RingkasanPage() {
           </div>
           <p className="mt-3.5 font-display text-[28px] font-bold leading-none text-ink">0</p>
           <p className="mt-1 text-[12.5px] font-medium text-ink-400">Kunjungan 30 hari terakhir</p>
+        </div>
+      </div>
+
+      {/* Chart — datanya masih contoh, ditandai jelas, sampai Fase 6 (Dashboard Analitik) dibangun */}
+      <div className="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-5">
+        <div className="lg:col-span-3">
+          <VisitChart />
+        </div>
+        <div className="lg:col-span-2">
+          <TrafficDonut />
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import { navLinks } from '@/lib/nav';
@@ -55,19 +56,19 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-2">
-            <a
-              href="#pricing"
+            <Link
+              href="/login"
               className="rounded-full px-4 py-2.5 text-[14.5px] font-semibold text-ink-600 transition-colors hover:text-ink"
             >
               Masuk
-            </a>
-            <a
-              href="#cta"
+            </Link>
+            <Link
+              href="/daftar"
               className="group inline-flex items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-[14.5px] font-semibold text-cream transition-all hover:bg-amber-500 hover:text-ink"
             >
               Mulai gratis
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
+            </Link>
           </div>
 
           <button
@@ -94,20 +95,20 @@ export default function Navbar() {
               </a>
             ))}
             <div className="mt-3 flex flex-col gap-2 border-t border-ink/8 pt-4">
-              <a
-                href="#pricing"
+              <Link
+                href="/login"
                 onClick={() => setOpen(false)}
                 className="rounded-full border border-ink/10 px-4 py-3 text-center text-[15px] font-semibold text-ink"
               >
                 Masuk
-              </a>
-              <a
-                href="#cta"
+              </Link>
+              <Link
+                href="/daftar"
                 onClick={() => setOpen(false)}
                 className="rounded-full bg-ink px-4 py-3 text-center text-[15px] font-semibold text-cream"
               >
                 Mulai gratis
-              </a>
+              </Link>
             </div>
           </Container>
         </div>
