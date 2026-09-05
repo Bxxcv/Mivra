@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Dark mode diaktifkan lewat class .dark di <html> (toggle manual), bukan
+   cuma ikut preferensi sistem — dipakai ThemeToggle.tsx di dashboard/admin. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Design token MIVRA — lihat docs/DESAIN.md. Jangan ubah nilai di sini
    tanpa update docs/DESAIN.md juga. */
 @theme {

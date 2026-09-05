@@ -1,5 +1,5 @@
 import { Check, Sparkles } from 'lucide-react';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUserProfile } from '@/lib/supabase/get-user';
 
 const freeFeatures = [
   '1 halaman Mivra',
@@ -26,16 +26,7 @@ const premiumFeatures = [
 ];
 
 export default async function UpgradePage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('tier')
-    .eq('id', user!.id)
-    .single();
-
+  const { profile } = await getCurrentUserProfile();
   const isPremium = profile?.tier === 'premium';
 
   return (
@@ -43,20 +34,20 @@ export default async function UpgradePage() {
       <div className="flex items-center gap-3">
         <img src="/mascot/mascot-wallet.webp" alt="" className="h-11 w-11 object-contain" />
         <div>
-          <h1 className="font-display text-[22px] font-bold text-ink">Upgrade ke Premium</h1>
-          <p className="text-[13.5px] text-ink-400">
+          <h1 className="font-display text-[22px] font-bold text-ink dark:text-cream">Upgrade ke Premium</h1>
+          <p className="text-[13.5px] text-ink-400 dark:text-cream/40">
             Pembayaran langganan belum aktif (menyusul di Fase 8) — halaman ini pratinjau paket.
           </p>
         </div>
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <div className="rounded-3xl border border-ink/8 bg-white p-6">
-          <p className="font-display text-[17px] font-bold text-ink">Gratis</p>
-          <p className="mt-1 text-[12.5px] text-ink-400">Paketmu saat ini{!isPremium ? ' ✓' : ''}</p>
+        <div className="rounded-3xl border border-ink/8 bg-white p-6 dark:border-white/10 dark:bg-[#1D1A16]">
+          <p className="font-display text-[17px] font-bold text-ink dark:text-cream">Gratis</p>
+          <p className="mt-1 text-[12.5px] text-ink-400 dark:text-cream/40">Paketmu saat ini{!isPremium ? ' ✓' : ''}</p>
           <ul className="mt-5 flex flex-col gap-2.5">
             {freeFeatures.map((f) => (
-              <li key={f} className="flex items-start gap-2 text-[13px] text-ink-600">
+              <li key={f} className="flex items-start gap-2 text-[13px] text-ink-600 dark:text-cream/70">
                 <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-forest-500" /> {f}
               </li>
             ))}

@@ -14,6 +14,11 @@ Format: `- [ ] (Fase) Deskripsi task — catatan`
 - [ ] Gallery/portofolio (khusus Premium) — masih placeholder ComingSoon
 - [ ] Halaman detail produk (`/username/produk/slug`) — sekarang klik produk di halaman publik belum ke mana-mana
 
+## Sedang Berjalan (Polish teknis)
+
+- [ ] Uji nyata di HP: pastikan bottom nav mobile & drawer "Lainnya" kerasa enak dipakai (baru dicek manual di kode, belum di-tes di device asli)
+- [ ] Cek lebih lanjut kalau masih ada halaman lain yang belum diuji di layar kecil (produk grid, form upload foto)
+
 ## Fase 1 — Sisa Setup Manual (perlu dikonfirmasi Farid sudah/belum)
 
 - [ ] Setup Google OAuth di Supabase Auth provider settings (dashboard Supabase → Authentication → Sign In/Providers → Google)

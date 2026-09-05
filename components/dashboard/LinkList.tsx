@@ -26,8 +26,8 @@ export default function LinkList({ links }: { links: LinkRow[] }) {
 
   if (links.length === 0) {
     return (
-      <div className="mt-4 rounded-2xl border border-dashed border-ink/15 bg-white p-8 text-center">
-        <p className="text-[13.5px] text-ink-400">
+      <div className="mt-4 rounded-2xl border border-dashed border-ink/15 bg-white p-8 text-center dark:border-white/15 dark:bg-white/[0.03]">
+        <p className="text-[13.5px] text-ink-400 dark:text-cream/40">
           Belum ada link. Tambahkan link pertamamu di form atas.
         </p>
       </div>
@@ -41,7 +41,7 @@ export default function LinkList({ links }: { links: LinkRow[] }) {
         return (
           <div
             key={link.id}
-            className={`flex items-center gap-3 rounded-2xl border border-ink/8 bg-white p-3.5 shadow-soft transition-opacity ${
+            className={`flex items-center gap-3 rounded-2xl border border-ink/8 bg-white p-3.5 shadow-soft transition-opacity dark:border-white/10 dark:bg-[#1D1A16] ${
               busy ? 'opacity-50' : ''
             } ${!link.is_active ? 'opacity-60' : ''}`}
           >
@@ -67,15 +67,15 @@ export default function LinkList({ links }: { links: LinkRow[] }) {
             </div>
 
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[14px] font-semibold text-ink">{link.label}</p>
-              <p className="truncate text-[12px] text-ink-400">{link.url}</p>
+              <p className="truncate text-[14px] font-semibold text-ink dark:text-cream">{link.label}</p>
+              <p className="truncate text-[12px] text-ink-400 dark:text-cream/40">{link.url}</p>
             </div>
 
             <a
               href={link.url}
               target="_blank"
               rel="noreferrer"
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-ink-400 hover:bg-ink/5 hover:text-ink"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-ink-400 hover:bg-ink/5 hover:text-ink dark:text-cream/40 dark:hover:bg-white/10 dark:hover:text-cream"
               aria-label="Buka link"
             >
               <ExternalLink className="h-3.5 w-3.5" />

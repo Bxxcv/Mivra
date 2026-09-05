@@ -49,3 +49,6 @@ Log task yang sudah selesai, urut dari terbaru. Format: `- [x] YYYY-MM-DD — De
 - [x] 2026-09-04 — Tambah recharts sebagai library chart, bikin dashboard lebih "ramai data" sesuai referensi Farid, warna tetap pakai palet Mivra (bukan warna-warni acak dari referensi)
 - [x] 2026-09-04 — Dashboard Ringkasan (seller): tambah chart kunjungan 7 hari + donut sumber trafik — datanya CONTOH (ditandai badge "Contoh data" jelas), karena analytics_events asli baru Fase 6
 - [x] 2026-09-04 — Admin Master: tambah chart pendaftaran user 7 hari terakhir + donut distribusi tier — datanya ASLI dari database (created_at & tier), bukan contoh
+- [x] 2026-09-05 — Fix bug KRITIS: Sidebar dashboard 100% hidden di mobile (hidden sm:flex) tanpa pengganti apapun — user HP gak bisa navigasi sama sekali. Ditambahkan bottom nav + drawer "Lainnya" khusus mobile.
+- [x] 2026-09-05 — Fix performa: query user+profile yang dobel-fetch di layout DAN tiap page (Ringkasan/Katalog/Halaman Bio/Upgrade) — disatukan pakai React cache() di lib/supabase/get-user.ts, plus paralelkan query count link/produk (Promise.all, bukan sequential)
+- [x] 2026-09-05 — Tambah toggle light/dark mode di dashboard seller (default terang) & Admin Master (default gelap, key localStorage terpisah), termasuk chart recharts yang ikut menyesuaikan warna via hook useIsDark

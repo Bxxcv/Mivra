@@ -24,10 +24,10 @@ export default function AddProductForm() {
   }
 
   return (
-    <div className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft">
-      <p className="text-[13.5px] font-bold text-ink">Tambah produk baru</p>
+    <div className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft dark:border-white/10 dark:bg-[#1D1A16]">
+      <p className="text-[13.5px] font-bold text-ink dark:text-cream">Tambah produk baru</p>
       <form ref={formRef} action={handleSubmit} className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-start">
-        <label className="flex h-24 w-24 shrink-0 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-ink/15 bg-cream-100 text-ink-400 hover:border-amber-400">
+        <label className="flex h-24 w-24 shrink-0 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-ink/15 bg-cream-100 text-ink-400 hover:border-amber-400 dark:border-white/15 dark:bg-white/5 dark:text-cream/40">
           {preview ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={preview} alt="" className="h-full w-full rounded-xl object-cover" />
@@ -54,26 +54,26 @@ export default function AddProductForm() {
             name="name"
             required
             placeholder="Nama produk"
-            className="rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] outline-none focus:border-amber-400 sm:col-span-2"
+            className="rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] text-ink outline-none focus:border-amber-400 dark:border-white/15 dark:bg-white/5 dark:text-cream dark:placeholder:text-cream/30 sm:col-span-2"
           />
           <input
             name="price"
             required
             inputMode="numeric"
             placeholder="Harga (Rp)"
-            className="rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] outline-none focus:border-amber-400"
+            className="rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] text-ink outline-none focus:border-amber-400 dark:border-white/15 dark:bg-white/5 dark:text-cream dark:placeholder:text-cream/30"
           />
           <input
             name="stock"
             inputMode="numeric"
             placeholder="Stok (kosongkan = tak terbatas)"
-            className="rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] outline-none focus:border-amber-400"
+            className="rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] text-ink outline-none focus:border-amber-400 dark:border-white/15 dark:bg-white/5 dark:text-cream dark:placeholder:text-cream/30"
           />
           <textarea
             name="description"
             placeholder="Deskripsi singkat (opsional)"
             rows={2}
-            className="rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] outline-none focus:border-amber-400 sm:col-span-2"
+            className="rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] text-ink outline-none focus:border-amber-400 dark:border-white/15 dark:bg-white/5 dark:text-cream dark:placeholder:text-cream/30 sm:col-span-2"
           />
           <button
             type="submit"

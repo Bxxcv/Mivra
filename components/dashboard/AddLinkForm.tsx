@@ -22,20 +22,20 @@ export default function AddLinkForm() {
   }
 
   return (
-    <div className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft">
-      <p className="text-[13.5px] font-bold text-ink">Tambah link baru</p>
+    <div className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft dark:border-white/10 dark:bg-[#1D1A16]">
+      <p className="text-[13.5px] font-bold text-ink dark:text-cream">Tambah link baru</p>
       <form ref={formRef} action={handleSubmit} className="mt-3 flex flex-col gap-2.5 sm:flex-row">
         <input
           name="label"
           required
           placeholder="Label (mis. Instagram)"
-          className="flex-1 rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] outline-none focus:border-amber-400"
+          className="flex-1 rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] text-ink outline-none focus:border-amber-400 dark:border-white/15 dark:bg-white/5 dark:text-cream dark:placeholder:text-cream/30"
         />
         <input
           name="url"
           required
           placeholder="https://instagram.com/usernamekamu"
-          className="flex-[1.5] rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] outline-none focus:border-amber-400"
+          className="flex-[1.5] rounded-xl border border-ink/10 bg-cream-100 px-3.5 py-2.5 text-[13.5px] text-ink outline-none focus:border-amber-400 dark:border-white/15 dark:bg-white/5 dark:text-cream dark:placeholder:text-cream/30"
         />
         <button
           type="submit"

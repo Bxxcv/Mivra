@@ -1,33 +1,22 @@
 import { createClient } from '@/lib/supabase/server';
+import { getCurrentUserProfile } from '@/lib/supabase/get-user';
 import { getLimits, type Tier } from '@/lib/limits';
 import { Link2, ShoppingBag, Eye, ArrowUpRight, Sparkles } from 'lucide-react';
 import VisitChart from '@/components/dashboard/VisitChart';
 import TrafficDonut from '@/components/dashboard/TrafficDonut';
 
 export default async function RingkasanPage() {
+  const { user, profile } = await getCurrentUserProfile();
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
 
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('tier, username, display_name')
-    .eq('id', user!.id)
-    .single();
-
-  const tier: Tier = (profile?.tier as Tier) ?? 'free';
+  const tier: Tier = profile?.tier ?? 'free';
   const limits = getLimits(tier);
 
-  const { count: linkCount } = await supabase
-    .from('links')
-    .select('*', { count: 'exact', head: true })
-    .eq('user_id', user!.id);
-
-  const { count: productCount } = await supabase
-    .from('products')
-    .select('*', { count: 'exact', head: true })
-    .eq('user_id', user!.id);
+  // Paralel, bukan berurutan — ini yang bikin navigasi terasa lebih cepat.
+  const [{ count: linkCount }, { count: productCount }] = await Promise.all([
+    supabase.from('links').select('*', { count: 'exact', head: true }).eq('user_id', user!.id),
+    supabase.from('products').select('*', { count: 'exact', head: true }).eq('user_id', user!.id),
+  ]);
 
   const linkDisplay = `${linkCount ?? 0}${limits.maxLinks === Infinity ? '' : ` / ${limits.maxLinks}`}`;
   const productDisplay = `${productCount ?? 0} / ${limits.maxProducts}`;
@@ -70,7 +59,7 @@ export default async function RingkasanPage() {
 
       {/* Stat cards — tiap kartu punya warna & karakter sendiri, bukan template seragam */}
       <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft">
+        <div className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft dark:border-white/10 dark:bg-[#1D1A16]">
           <div className="flex items-center justify-between">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-forest-50 text-forest-600">
               <Link2 className="h-4.5 w-4.5" />
@@ -79,24 +68,24 @@ export default async function RingkasanPage() {
               <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-bold text-amber-600">Penuh</span>
             )}
           </div>
-          <p className="mt-3.5 font-display text-[28px] font-bold leading-none text-ink">{linkDisplay}</p>
-          <p className="mt-1 text-[12.5px] font-medium text-ink-400">Link di halaman bio</p>
+          <p className="mt-3.5 font-display text-[28px] font-bold leading-none text-ink dark:text-cream">{linkDisplay}</p>
+          <p className="mt-1 text-[12.5px] font-medium text-ink-400 dark:text-cream/40">Link di halaman bio</p>
         </div>
 
-        <div className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft">
+        <div className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft dark:border-white/10 dark:bg-[#1D1A16]">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
             <ShoppingBag className="h-4.5 w-4.5" />
           </div>
-          <p className="mt-3.5 font-display text-[28px] font-bold leading-none text-ink">{productDisplay}</p>
-          <p className="mt-1 text-[12.5px] font-medium text-ink-400">Produk di katalog</p>
+          <p className="mt-3.5 font-display text-[28px] font-bold leading-none text-ink dark:text-cream">{productDisplay}</p>
+          <p className="mt-1 text-[12.5px] font-medium text-ink-400 dark:text-cream/40">Produk di katalog</p>
         </div>
 
-        <div className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft">
+        <div className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft dark:border-white/10 dark:bg-[#1D1A16]">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy-500/10 text-navy-500">
             <Eye className="h-4.5 w-4.5" />
           </div>
-          <p className="mt-3.5 font-display text-[28px] font-bold leading-none text-ink">0</p>
-          <p className="mt-1 text-[12.5px] font-medium text-ink-400">Kunjungan 30 hari terakhir</p>
+          <p className="mt-3.5 font-display text-[28px] font-bold leading-none text-ink dark:text-cream">0</p>
+          <p className="mt-1 text-[12.5px] font-medium text-ink-400 dark:text-cream/40">Kunjungan 30 hari terakhir</p>
         </div>
       </div>
 
@@ -111,11 +100,11 @@ export default async function RingkasanPage() {
       </div>
 
       {/* Empty state yang ada karakter, bukan kotak putus-putus generik */}
-      <div className="mt-5 flex flex-col items-center gap-3 rounded-2xl border border-ink/8 bg-cream-100 px-6 py-10 text-center sm:flex-row sm:gap-5 sm:text-left">
+      <div className="mt-5 flex flex-col items-center gap-3 rounded-2xl border border-ink/8 bg-cream-100 px-6 py-10 text-center dark:border-white/10 dark:bg-white/[0.04] sm:flex-row sm:gap-5 sm:text-left">
         <img src="/mascot/mascot-support.webp" alt="" className="h-16 w-16 shrink-0 object-contain" />
         <div>
-          <p className="text-[14px] font-bold text-ink">Rekap order & omset belum ada data</p>
-          <p className="mt-0.5 text-[13px] text-ink-400">
+          <p className="text-[14px] font-bold text-ink dark:text-cream">Rekap order & omset belum ada data</p>
+          <p className="mt-0.5 text-[13px] text-ink-400 dark:text-cream/40">
             Bagian ini otomatis terisi begitu ada pesanan masuk lewat fitur Checkout (segera hadir).
           </p>
         </div>
