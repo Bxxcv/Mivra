@@ -111,8 +111,8 @@ export default async function PublicBioPage({ params }: Props) {
             className="h-24 w-24 overflow-hidden rounded-full ring-4 shadow-md"
             style={{
               backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : '#F5F0E6',
-              ringColor: isDark ? 'rgba(255,255,255,0.15)' : '#FFFFFF',
-            }}
+              '--tw-ring-color': isDark ? 'rgba(255,255,255,0.15)' : '#FFFFFF',
+            } as React.CSSProperties}
           >
             {profile.avatar_url ? (
               // eslint-disable-next-line @next/next/no-img-element
