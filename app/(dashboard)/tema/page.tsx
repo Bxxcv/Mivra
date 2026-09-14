@@ -18,8 +18,10 @@ type Theme = {
 };
 
 export default async function TemaPage() {
-  const { user, profile } = await getCurrentUserProfile();
-  const supabase = await createClient();
+  const [{ user, profile }, supabase] = await Promise.all([
+    getCurrentUserProfile(),
+    createClient(),
+  ]);
   const tier: Tier = profile?.tier ?? 'free';
 
   const [{ data: themes }, { data: fullProfile }] = await Promise.all([

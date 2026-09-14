@@ -5,8 +5,10 @@ import AddProductForm from '@/components/dashboard/AddProductForm';
 import ProductGrid from '@/components/dashboard/ProductGrid';
 
 export default async function KatalogPage() {
-  const { user, profile } = await getCurrentUserProfile();
-  const supabase = await createClient();
+  const [{ user, profile }, supabase] = await Promise.all([
+    getCurrentUserProfile(),
+    createClient(),
+  ]);
   const tier: Tier = profile?.tier ?? 'free';
   const limits = getLimits(tier);
 

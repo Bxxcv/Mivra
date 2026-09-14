@@ -5,8 +5,10 @@ import AddLinkForm from '@/components/dashboard/AddLinkForm';
 import LinkList from '@/components/dashboard/LinkList';
 
 export default async function HalamanBioPage() {
-  const { user, profile } = await getCurrentUserProfile();
-  const supabase = await createClient();
+  const [{ user, profile }, supabase] = await Promise.all([
+    getCurrentUserProfile(),
+    createClient(),
+  ]);
   const tier: Tier = profile?.tier ?? 'free';
   const limits = getLimits(tier);
 

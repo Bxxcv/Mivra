@@ -6,8 +6,10 @@ import VisitChart from '@/components/dashboard/VisitChart';
 import TrafficDonut from '@/components/dashboard/TrafficDonut';
 
 export default async function RingkasanPage() {
-  const { user, profile } = await getCurrentUserProfile();
-  const supabase = await createClient();
+  const [{ user, profile }, supabase] = await Promise.all([
+    getCurrentUserProfile(),
+    createClient(),
+  ]);
 
   const tier: Tier = profile?.tier ?? 'free';
   const limits = getLimits(tier);
